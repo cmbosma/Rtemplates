@@ -1,5 +1,5 @@
 
-#MIXED-EFFECTS LINEAR MODELING TEMPLATE USING lme4 and nlme
+## MIXED-EFFECTS LINEAR MODELING TEMPLATE USING lme4 and nlme
 #-----------------------------------------------------------------------------------------
 
 if (!require(lme4)) {install.packages("lme4"); require(lme4)}  
@@ -98,5 +98,6 @@ boot.ci(results, type="bca", index=3) # disp
 
 
 ## Making Tables using `sjPlot` package
+# Note: output cannot be rendered into anything other than html - good as a reference, but not inserting into a manuscript or poster
 ## -----------------------
 table <- sjt.lmer()
