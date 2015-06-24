@@ -7,6 +7,7 @@ browseURL("http://cran.r-project.org/web/packages/available_packages_by_name.htm
 browseURL("https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml") # Google's R Style Guide
 browseURL("http://www.ats.ucla.edu/stat/mult_pkg/whatstat/") # Flow chart for choosing the the correct analyses
 browseURL("http://psych.colorado.edu/~mcclella/psych3101h/statfinder/start.html") # Flow chart for choosing type of analysis to run
+browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 
 ## Load Packages
 ## -----------------------
