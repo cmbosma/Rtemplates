@@ -30,10 +30,13 @@ class()
 is.factor()
 as.factor()
 
-
 # Characters
 is.character()
 as.character()
+
+# Numeric
+is.numeric()
+as.numeric()
 
 ## Look at the Data
 ## -----------------------
