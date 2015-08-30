@@ -41,7 +41,6 @@ ls() # Look at what is in your workspace
 str() # Shows type of data (class and other parameters)
 summary()
 describe()
-describe()
 names()
 table() # Useful for looking at frequencies of categorical variables (can use sapply(Var, sum) as well)
 
