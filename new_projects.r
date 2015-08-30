@@ -25,6 +25,7 @@ data <- read.csv("[insert directory]", header=TRUE)
 ## Formatting Data - Basic (if needed)
 ## -----------------------
 class()
+str() # Shows type of data (class and other parameters)
 
 # Factors
 is.factor()
@@ -41,7 +42,6 @@ as.numeric()
 ## Look at the Data
 ## -----------------------
 ls() # Look at what is in your workspace
-str() # Shows type of data (class and other parameters)
 summary()
 describe()
 names()
@@ -65,6 +65,7 @@ detach(data)
 ## -----------------------
 sapply(, mean)
 sapply(, sd)
+sapply(, range)
 
 ## Data Analyses
 ## -----------------------
