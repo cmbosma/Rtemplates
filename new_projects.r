@@ -11,8 +11,9 @@ browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 
 ## Load Packages
 ## -----------------------
-if (!require(packagename)) {install.packages("packagename"); require(packagename)} #Template
-if (!require(readr)) {install.packages("readr"); require(readr)} #Template
+if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
+
+if (!require(readr)) {install.packages("readr"); require(readr)} # package for importing data with additional options and control
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 
 ## Load Data (from flat .csv file)
@@ -26,6 +27,7 @@ data <- read_csv("[data.csv]") # load data using readr package - can use argumen
     names(data) #Checking changes to variable names
         head(data, 10); tail(data, 10) # Print fist and last six items of data set
         str(data)
+        View(data)
 
 ## Load specific variables into new data frame
 
