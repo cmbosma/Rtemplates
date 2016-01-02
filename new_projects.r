@@ -21,7 +21,7 @@ if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrade
 # use fread() function to import data and easily drop/select variables ex: data <- fread("data.csv", select = c(), drop = c())
 ## -----------------------
 data <- file.path("[insert directory]") # setting file path to import data
-data <- read_csv("[data.csv]", na.strings="") # load data using readr package - can use arguments to convert data types through import
+data <- read_csv("[data.csv]") # load data using readr package - can use arguments to convert data types through import
   names(data) <- tolower(names(data)) ##Change all variable names to lowercase
   names(data) <- gsub("_", ".", names(data))   ## replace "_" with "."
   names(data) #Checking changes to variable names
