@@ -11,7 +11,7 @@ if (!require(readr)) {install.packages("readr"); require(readr)} # package for i
 
 setwd("[insert directory]")
 data <- read.csv("dataframe.csv") # import without arguments
-data <- read.csv("dataframe.csv", na.strings = "999") # import .csv with coded missing variables
+data <- read.csv("dataframe.csv", na.strings = "999") # import .csv with coded missing variables 
 
 ## Importing .csv using readr package
 
