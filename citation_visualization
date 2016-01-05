@@ -2,7 +2,6 @@
 
 library(rvest)
 library(ggplot2)
-library(wesanderson)
 
 # Let’s use SelectorGadget to find out which css selector matches the “cited by” column.
 
