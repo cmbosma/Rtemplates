@@ -1,4 +1,6 @@
-## Visualizaiton of citations and coauthor citations
+## Visualizaiton of citations and coauthor citations from scraping goolge scholar
+
+browseURL("http://www.r-bloggers.com/google-scholar-scraping-with-rvest-package/") # Original post
 
 library(rvest)
 library(ggplot2)
