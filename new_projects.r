@@ -12,9 +12,10 @@ browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 ## Load Packages
 ## -----------------------
 if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
-
 if (!require(readr)) {install.packages("readr"); require(readr)} # package for importing data with additional options and control
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
+if (!require(ggplot2)) {install.packages("ggplot2"); require(ggplot2)} # Data visualization package - useful for specialized visualization
+
 
 ## Load Data (from flat .csv file)
 # Note: use function read.csv2 for european data sets (with commas as decimals). Use read.table() to set parameters to read other flat data formats
