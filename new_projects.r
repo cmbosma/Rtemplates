@@ -9,15 +9,17 @@ browseURL("http://www.ats.ucla.edu/stat/mult_pkg/whatstat/") # Flow chart for ch
 browseURL("http://psych.colorado.edu/~mcclella/psych3101h/statfinder/start.html") # Flow chart for choosing type of analysis to run
 browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 
-## Load Packages
+## PACKAGES
 ## -----------------------
 if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
 if (!require(readr)) {install.packages("readr"); require(readr)} # package for importing data with additional options and control
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 if (!require(ggplot2)) {install.packages("ggplot2"); require(ggplot2)} # Data visualization package - useful for specialized visualization
+if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
 
 
-## Load Data (from flat .csv file)
+
+## IMPORT DATA (from flat .csv file)
 # Note: use function read.csv2 for european data sets (with commas as decimals). Use read.table() to set parameters to read other flat data formats
 # use fread() function to import data and easily drop/select variables ex: data <- fread("data.csv", select = c(), drop = c())
 ## -----------------------
@@ -27,10 +29,10 @@ data <- read_csv("[data.csv]") # load data using readr package - can use argumen
   names(data) <- gsub("_", ".", names(data))   ## replace "_" with "."
   names(data) #Checking changes to variable names
     head(data, 10); tail(data, 10) # Print fist and last six items of data set
-    str(data)
+    str(data) # check to see which variables may need to be converted to a different class
     View(data)
 
-## Formatting Data - Basic (if needed)
+## FORMATTING DATA - Basic (if needed)
 ## -----------------------
 class()
 str() # Shows type of data (class and other parameters)
@@ -46,14 +48,29 @@ as.character()
 is.numeric()
 as.numeric()
 
-## Look at the Data
+## LOOK AT THE DATA
 ## -----------------------
 ls() # Look at what is in your workspace
 summary()
 describe()
 table() # Useful for looking at frequencies of categorical variables (can use sapply(Var, sum) as well)
 
-## Plotting variables
+## PLOTTING DATA AND OUTLIER DETECTION 
+## ------------------------
+
+# Using ggplot2
+
+xvar_mean <- mean(xvar) # Save mean to vector
+
+# Histogram
+
+ggplot(data = data, aes(x = xvar_rand_norm)) +
+  geom_histogram() +
+  geom_vline(xintercept = xvar_mean, color = "dark red") +
+  annotate("text", label = paste("Mean: ", round(xvar_mean,digits = 2)), x = xvar_mean, y = 30, color = "white", size = 5)
+
+
+# Using base graphics
 par()              # view current settings
 opar <- par()      # make a copy of current settings
 
@@ -67,12 +84,14 @@ par(opar)          # restore original settings
 
 detach(data)
 
-## Descriptive Statisitics
-# Depending on type of data, use lapply(), or vapply() for more control
+## DESCRIPTIVE STATISTICS
 ## -----------------------
+
+# Depending on type of data, use lapply(), or vapply() for more control
+
 sapply(, mean)
 sapply(, sd)
 sapply(, range)
 
-## Data Analyses
+## DATA ANALYSIS
 ## -----------------------
