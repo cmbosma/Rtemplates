@@ -9,6 +9,7 @@ browseURL("http://www.ats.ucla.edu/stat/mult_pkg/whatstat/") # Flow chart for ch
 browseURL("http://psych.colorado.edu/~mcclella/psych3101h/statfinder/start.html") # Flow chart for choosing type of analysis to run
 browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 
+
 ## PACKAGES
 ## -----------------------
 if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
@@ -16,7 +17,7 @@ if (!require(readr)) {install.packages("readr"); require(readr)} # package for i
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 if (!require(ggplot2)) {install.packages("ggplot2"); require(ggplot2)} # Data visualization package - useful for specialized visualization
 if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
-
+if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 
 
 ## IMPORT DATA (from flat .csv file)
@@ -26,7 +27,7 @@ if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipula
 data <- file.path("[insert directory]") # setting file path to import data
 data <- read_csv("[data.csv]") # load data using readr package - can use arguments to convert data types through import
   names(data) <- tolower(names(data)) ##Change all variable names to lowercase
-  names(data) <- gsub("_", ".", names(data))   ## replace "_" with "."
+  names(data) <- gsub("-", "_", names(data))   ## replace "." with "_" in variable names (change based on variable names)
   names(data) #Checking changes to variable names
     head(data, 10); tail(data, 10) # Print fist and last six items of data set
     str(data) # check to see which variables may need to be converted to a different class
@@ -48,7 +49,8 @@ as.character()
 is.numeric()
 as.numeric()
 
-## LOOK AT THE DATA
+
+## LOOK AT THE DATA 
 ## -----------------------
 ls() # Look at what is in your workspace
 summary()
@@ -83,6 +85,13 @@ hist()
 par(opar)          # restore original settings
 
 detach(data)
+
+# Outlier detection 
+
+describe()
+boxplot()
+scale(vec, center = TRUE, scale = TRUE) # calculate z-scores for each value in vector
+outlier() # using 'outlier' package
 
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
