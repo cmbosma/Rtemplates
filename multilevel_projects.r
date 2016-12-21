@@ -20,10 +20,10 @@ browseURL("http://glmm.wikidon.com/faq") # Good website for steps in mixed-effec
 ## Load Data (from .csv file)
 ## -----------------------
 data <- read.csv("[insert directory]", header=TRUE)
-names(data) <- tolower(names(data)) ##Change all variable names to lowercase
-names(data) <- gsub("_", ".", names(data))   ## replace "_" with "."
-names(data) # Checking changes to variable names
-head(data, 10); tail(data, 10) # Print first and last six items of data set
+  names(data) <- tolower(names(data)) ##Change all variable names to lowercase
+  names(data) <- gsub("-", "_", names(data))   ## replace "." with "_" in variable names (change based on variable names)
+  names(data) # Checking changes to variable names
+  head(data, 10); tail(data, 10) # Print first and last six items of data set
 
 ## Format data using `reshape2` package
 ## -----------------------
