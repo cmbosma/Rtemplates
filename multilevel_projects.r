@@ -7,6 +7,7 @@ if (!require(nlme)) {install.packages("nlme"); require(nlme)}  # package for mul
 if (!require(lattice)) {install.packages("lattice"); require(lattice)} # package for visualizing multivariate data/analyses
 if (!require(sjPlot)) {install.packages("sjPlot"); require(sjPlot)}  # creates mixed-effects model tables
 if (!require(reshape2)) {install.packages("reshape2")}; require(reshape2) # format dataframe into long format
+if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
 if (!require(bootstrap)) {install.packages("bootstrap"); require(bootstrap)} # for bootstrapping coeffiencents  and other parameters
 
 
