@@ -17,6 +17,7 @@ if (!require(readr)) {install.packages("readr"); require(readr)} # package for i
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 if (!require(ggplot2)) {install.packages("ggplot2"); require(ggplot2)} # Data visualization package - useful for specialized visualization
 if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
+if (!require(tidyr)) {install.packages("tidyr"); require(tidyr)} # Data cleaning package
 if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 
 
