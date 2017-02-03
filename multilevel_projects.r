@@ -26,6 +26,13 @@ data <- read.csv("[insert directory]", header=TRUE)
   names(data) # Checking changes to variable names
   head(data, 10); tail(data, 10) # Print first and last six items of data set
 
+# Create new dataframe from larger dataframe with variables of interest
+newdf <- data[,c("vec", "vec")]
+
+# Using data.frame function
+newdf <- data.frame(data$vec)
+names(newdf) <- c("var.name")
+
 ## Format data using `reshape2` package
 ## -----------------------
 
