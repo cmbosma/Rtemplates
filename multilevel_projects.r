@@ -56,7 +56,7 @@ xyplot(x, data, ...)
 ## -----------------------
 
 # Random intercept
-model.ri <- lme(DV~IV, random~1|SAMPLE, data=YOURDATA, method="ML")
+model_ri <- lme(DV~IV, random=~1|SAMPLE, data=YOURDATA, method="ML")
 #NOTES:
 #1. Syntax that needs to be changed in accordance to your data is in caps
 #2. Sample is the variable you use to identify each sample, such as participant IDs. It is the variable where you want your random intercepts to be based on.
@@ -67,12 +67,12 @@ model.ri <- lme(DV~IV, random~1|SAMPLE, data=YOURDATA, method="ML")
 model <- glm(DV~IV + (1|ID),data=data, na.action=na.exclude) # random intercept
 
 # random slope
-model.rs <- lme(DV~IV, random~IV|SAMPLE, data=YOURDATA, method="ML")
+model_rs <- lme(DV~IV, random=~IV|SAMPLE, data=YOURDATA, method="ML")
 #NOTES:
 #1. To create a random slope model, you replace the "1" with a nested IV such as Time.
 
 # random intercept with covariates
-model.ri <- lme(DV~IV, + IV2 + IV3, random~1|SAMPLE, data=YOURDATA, method="ML")
+model_ri <- lme(DV~IV, + IV2 + IV3, random=~1|SAMPLE, data=YOURDATA, method="ML")
 
 # Updating model
 newmodel <- update(previous.model.name, .~. + additional.variable)
@@ -80,7 +80,7 @@ newmodel <- update(previous.model.name, .~. + additional.variable)
 
 ## Comparing Models
 ## -----------------------
-aov(model.1, model.2)
+aov(model_1, model_2)
 
 # Use REML instead of ML depending on characteristics of data
 # Use `lme()` function from nlme package to get output with p-values - good as a final model
