@@ -62,6 +62,7 @@ model_ri <- lme(DV~IV, random=~1|SAMPLE, data=YOURDATA, method="ML")
 #2. Sample is the variable you use to identify each sample, such as participant IDs. It is the variable where you want your random intercepts to be based on.
 #3. If you happen to have any missing data you are not aware of, use (na.actions=na.exlude)
 #4. This is likely the model format you will be using.
+#5. SAMPLE is typically the id, allowing for the random intercept at the individual level 
 
 # Building models using lme4 package (easier for building nested models)
 model <- glm(DV~IV + (1|ID),data=data, na.action=na.exclude) # random intercept
