@@ -8,6 +8,7 @@ if (!require(lattice)) {install.packages("lattice"); require(lattice)} # package
 if (!require(sjPlot)) {install.packages("sjPlot"); require(sjPlot)}  # creates mixed-effects model tables
 if (!require(reshape2)) {install.packages("reshape2")}; require(reshape2) # format dataframe into long format
 if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
+if (!require(tidyr)) {install.packages("tidyr"); require(tidyr)} # Data manipulation package - can use for restructureing
 if (!require(bootstrap)) {install.packages("bootstrap"); require(bootstrap)} # for bootstrapping coeffiencents  and other parameters
 
 
@@ -37,7 +38,11 @@ names(newdf) <- c("var.name")
 ## -----------------------
 
 ?reshape2 # Open reshape2 documentation
-data <- melt()
+data <- melt(dataframe,
+             measure.vars = C(""),
+             value.name = "",
+             id.vars = c("")
+             variable.name = "")
 
 ## Look at the data using `lattice` package
 # See documentation above for other `lattice` options
@@ -59,7 +64,7 @@ model.ri <- lme(DV~IV, random~1|SAMPLE, data=YOURDATA, method="ML")
 #4. This is likely the model format you will be using.
 
 # Building models using lme4 package (easier for building nested models)
-model <- glm(DV~IV + + (1|ID),data=data, na.action=na.exclude) # random intercept
+model <- glm(DV~IV + (1|ID),data=data, na.action=na.exclude) # random intercept
 
 # random slope
 model.rs <- lme(DV~IV, random~IV|SAMPLE, data=YOURDATA, method="ML")
@@ -69,7 +74,7 @@ model.rs <- lme(DV~IV, random~IV|SAMPLE, data=YOURDATA, method="ML")
 # random intercept with covariates
 model.ri <- lme(DV~IV, + IV2 + IV3, random~1|SAMPLE, data=YOURDATA, method="ML")
 
-#Updating model
+# Updating model
 newmodel <- update(previous.model.name, .~. + additional.variable)
 
 
