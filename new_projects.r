@@ -4,21 +4,22 @@
 ## -----------------------
 browseURL("http://www.statmethods.net/") # Quick-R website - great reference for data analysis in R
 browseURL("http://cran.r-project.org/web/packages/available_packages_by_name.html") # Available CRAN Packages by Name
-browseURL("https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml") # Google's R Style Guide
+browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 browseURL("http://www.ats.ucla.edu/stat/mult_pkg/whatstat/") # Flow chart for choosing the the correct analyses
 browseURL("http://psych.colorado.edu/~mcclella/psych3101h/statfinder/start.html") # Flow chart for choosing type of analysis to run
-browseURL("http://cran.r-project.org/web/views/") # List of packages by category
+browseURL("http://tidyverse.org") # Tidyverse package website
+browseURL("http://style.tidyverse.org") # The tidyverse style guide 
 
 
 ## PACKAGES
 ## -----------------------
 if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
-if (!require(readr)) {install.packages("readr"); require(readr)} # package for importing data with additional options and control
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
-if (!require(ggplot2)) {install.packages("ggplot2"); require(ggplot2)} # Data visualization package - useful for specialized visualization
-if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
-if (!require(tidyr)) {install.packages("tidyr"); require(tidyr)} # Data cleaning package
+if (!require(tidyverse)) {install.packages("tidyverse"); require(tidyverse)} # Packages by Hadley Wickham. Includes dyplr, tidyr, and ggplot2
 if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
+if (!require(lintr)) {install.packages("lintr"); require(lintr)} # Package for checking style of code
+if (!require(p.adjust)) {install.packages("p.adjust"); require(p.adjust)} # For correcting for multiple comparisons
+
 
 
 ## IMPORT DATA (from flat .csv file)
