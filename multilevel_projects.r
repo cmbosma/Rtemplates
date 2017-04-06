@@ -6,9 +6,9 @@ if (!require(lme4)) {install.packages("lme4"); require(lme4)}  # package for mul
 if (!require(nlme)) {install.packages("nlme"); require(nlme)}  # package for multilevel modeling - use for final fit of model
 if (!require(lattice)) {install.packages("lattice"); require(lattice)} # package for visualizing multivariate data/analyses
 if (!require(sjPlot)) {install.packages("sjPlot"); require(sjPlot)}  # creates mixed-effects model tables
+if (!require(xtable)) {install.packages("xtable"); require(xtable)}  # creates GLM tables
 if (!require(reshape2)) {install.packages("reshape2")}; require(reshape2) # format dataframe into long format
-if (!require(dpylr)) {install.packages("dpylr"); require(dpylr)} # Data manipulation package
-if (!require(tidyr)) {install.packages("tidyr"); require(tidyr)} # Data manipulation package - can use for restructureing
+if (!require(tidyverse)) {install.packages("tidyverse"); require(tidyverse)} # Loads Hadley's tidyverse packages
 if (!require(bootstrap)) {install.packages("bootstrap"); require(bootstrap)} # for bootstrapping coeffiencents  and other parameters
 
 
@@ -34,8 +34,7 @@ newdf <- data[,c("vec", "vec")]
 newdf <- data.frame(data$vec)
 names(newdf) <- c("var.name")
 
-## Format data using `reshape2` package
-## -----------------------
+## Restructuring data into long format using `reshape2` package -----------------------
 
 ?reshape2 # Open reshape2 documentation
 data <- melt(dataframe,
@@ -43,6 +42,9 @@ data <- melt(dataframe,
              value.name = "",
              id.vars = c("")
              variable.name = "")
+
+## Restructuring data into long format using `tidyr` package -----------------------
+
 
 ## Look at the data using `lattice` package
 # See documentation above for other `lattice` options
@@ -79,16 +81,18 @@ model_ri <- lme(DV~IV, + IV2 + IV3, random=~1|SAMPLE, data=YOURDATA, method="ML"
 newmodel <- update(previous.model.name, .~. + additional.variable)
 
 
-## Comparing Models
-## -----------------------
+## Comparing Models -----------------------
 aov(model_1, model_2)
 
-# Use REML instead of ML depending on characteristics of data
+# Use REML instead of ML depending on characteristics of data 
 # Use `lme()` function from nlme package to get output with p-values - good as a final model
 
+## Check for sphericity
 
-## Testing for random effect - use bootstrap approach
-## -----------------------
+## Correcting for when sphericity is violated
+
+
+## Testing for random effect - use bootstrap approach -----------------------
 
 # Bootstrap 95% CI for regression coefficients
 library(boot)
@@ -99,6 +103,7 @@ bs <- function(formula, data, indices) {
   return(coef(fit))
 }
 # bootstrapping with 1000 replications
+# Note: replace data and variables
 results <- boot(data=mtcars, statistic=bs,
                 R=1000, formula=mpg~wt+disp)
 
