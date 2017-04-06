@@ -18,6 +18,7 @@ browseURL("http://www.statmethods.net/advgraphs/trellis.html")
 browseURL("http://cran.r-project.org/web/packages/lattice/lattice.pdf")
 browseURL("https://strengejacke.wordpress.com/2015/06/05/beautiful-table-outputs-summarizing-mixed-effects-models-rstats/")
 browseURL("http://glmm.wikidon.com/faq") # Good website for steps in mixed-effects modeling
+browseURL("http://r4ds.had.co.nz") # R for Data Science online version by Hadley
 
 ## Load Data (from .csv file)
 ## -----------------------
