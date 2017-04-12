@@ -95,6 +95,14 @@ boxplot()
 scale(vec, center = TRUE, scale = TRUE) # calculate z-scores for each value in vector
 outlier() # using 'outlier' package
 
+# if univariate, continuous variable
+
+outlier_values <- boxplot.stats(df$vec)$out
+boxplot(df$vec, main = "variable name", boxwex = 0.1)
+mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
+outlier_ids <- subset(data, select = c(id, vec),  vec <= x) # change argument accordingly
+outlier_ids
+
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
 
