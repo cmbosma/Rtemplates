@@ -16,9 +16,10 @@ browseURL("http://style.tidyverse.org") # The tidyverse style guide
 if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 if (!require(tidyverse)) {install.packages("tidyverse"); require(tidyverse)} # Packages by Hadley Wickham. Includes dyplr, tidyr, and ggplot2
-if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 if (!require(lintr)) {install.packages("lintr"); require(lintr)} # Package for checking style of code
+if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 if (!require(p.adjust)) {install.packages("p.adjust"); require(p.adjust)} # For correcting for multiple comparisons
+if (!require(robustHD)) {install.packages("robustHD"); require(robustHD)} # Package for winsorizing and critical values
 
 
 
@@ -102,6 +103,10 @@ boxplot(df$vec, main = "variable name", boxwex = 0.1)
 mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
 outlier_ids <- subset(df, select = c(id, vec),  vec <= x) # change argument accordingly
 outlier_ids
+
+# Winsorizing
+
+winsorize()
 
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
