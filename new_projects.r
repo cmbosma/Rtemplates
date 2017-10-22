@@ -16,6 +16,7 @@ browseURL("http://style.tidyverse.org") # The tidyverse style guide
 if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 if (!require(tidyverse)) {install.packages("tidyverse"); require(tidyverse)} # Packages by Hadley Wickham. Includes dyplr, tidyr, and ggplot2
+if (!require(tidyverse)) {install.packages("haven"); require(haven)} # Package for importing data sets, including excel and SPSS
 if (!require(lintr)) {install.packages("lintr"); require(lintr)} # Package for checking style of code
 if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 if (!require(p.adjust)) {install.packages("p.adjust"); require(p.adjust)} # For correcting for multiple comparisons
