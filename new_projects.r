@@ -109,6 +109,8 @@ outlier_ids
 
 winsorize()
 
+data.frame[row_number, column_number] = new_value
+
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
 
