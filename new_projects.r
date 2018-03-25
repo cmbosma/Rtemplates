@@ -102,14 +102,20 @@ outlier() # using 'outlier' package
 outlier_values <- boxplot.stats(df$vec)$out
 boxplot(df$vec, main = "variable name", boxwex = 0.1)
 mtext(paste("Outliers: ", paste(outlier_values, collapse=", ")), cex=0.6)
-outlier_ids <- subset(df, select = c(id, vec),  vec <= x) # change argument accordingly
-outlier_ids
+outlier_ids_upper <- subset(df, select = c(id, vec),  vec >= x) # change argument accordingly
+outlier_ids_upper
+outlier_ids_lower <- subset(df, select = c(id, vec),  vec <= x) # change argument accordingly
+outlier_ids_lower
+
+
+
+# With dplyr
+dplyr::filter(df[c("id", "vec")], vec < x | vec > x) # replace x with cutoff
 
 # Winsorizing
 
-winsorize()
-
-data.frame[row_number, column_number] = new_value
+df[which(df$id == id_number), c("vec")] == new_value
+df[row_number, column_number] = new_value
 
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
