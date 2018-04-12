@@ -107,6 +107,8 @@ outlier_ids_upper
 outlier_ids_lower <- subset(df, select = c(id, vec),  vec <= x) # change argument accordingly
 outlier_ids_lower
 
+# Converting to z-score
+scale(df$vec, center = TRUE, scale = FALSE)
 
 
 # With dplyr
