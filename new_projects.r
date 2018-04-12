@@ -53,6 +53,10 @@ as.character()
 is.numeric()
 as.numeric()
 
+# Centering
+
+scale(df$vec, center = TRUE, scale = FALSE)
+df$vec - mean(df$vec) # manually
 
 ## LOOK AT THE DATA 
 ## -----------------------
@@ -108,7 +112,8 @@ outlier_ids_lower <- subset(df, select = c(id, vec),  vec <= x) # change argumen
 outlier_ids_lower
 
 # Converting to z-score
-scale(df$vec, center = TRUE, scale = FALSE)
+scale(df$vec, center = TRUE, scale = TRUE)
+df$vec - mean(df$vec)/sd(df$vec) # manually 
 
 
 # With dplyr
