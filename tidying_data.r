@@ -4,7 +4,7 @@
 
 ## LIbraries
 
-library(dplyr)
+library(tidyverse)
 
 ## Explore raw data
 
@@ -27,12 +27,16 @@ tail() # view last six rows of data
 
 print() # print entire data set to console - only use with small data sets
 
+View() # see whole data set in separate tab
+
 ## Visualizing raw data
 
 hist(data.frame$var) # view  histogram of single variable
 
 plot() # view plot of two variables
 
+ggplot(df, mapping = aes()) # basic plotting from ggplot2
+
 ## Cleaning data
 
-rm() # remove function
+names(df)[names(df) == 'old.var.name'] <- 'new.var.name'# renaming vectors
