@@ -88,6 +88,9 @@ aov(model_1, model_2)
 # Use REML instead of ML depending on characteristics of data 
 # Use `lme()` function from nlme package to get output with p-values - good as a final model
 
+summary(model)
+intervals(model)
+
 ## Check for sphericity
 
 ## Correcting for when sphericity is violated
