@@ -37,6 +37,11 @@ data <- read_csv("[data.csv]") # load data using readr package - can use argumen
     str(data) # check to see which variables may need to be converted to a different class
     View(data)
 
+
+## SUBSETTING COLUMNS OF INTEREST
+
+df <- data.frame(data[vec1, vec2, vec3,...])
+
 ## FORMATTING DATA - Basic (if needed)
 ## -----------------------
 class()
