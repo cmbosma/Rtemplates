@@ -128,6 +128,8 @@ dplyr::filter(df[c("id", "vec")], vec < x | vec > x) # replace x with cutoff
 
 df[which(df$id == id_number), c("vec")] == new_value
 df[row_number, column_number] = new_value
+df <- df %>% mutate(vec = replace(vec, vec <= x, new value)) # using dplyr
+
 
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
