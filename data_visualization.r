@@ -11,6 +11,8 @@ browseURL("https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml") # Goo
 if (!require(ggplot2)) {install.packages("ggplot2"); require(ggplot2)} # ggplot2: Data visualization package - useful for specialized visualization
 if (!require(lattice)) {install.packages("lattice"); require(lattice)} # lattice: package for visualizing multivariate data/analyses
 if (!require(ggvis)) {install.packages("ggvis"); require(ggvis)} 
+if (!require(colorspace)) {install.packages("colorspace"); require(colorspace)} # package with GUI to choose palettes
+
 
 ## Load Data -----------------------
 
@@ -18,4 +20,6 @@ if (!require(ggvis)) {install.packages("ggvis"); require(ggvis)}
 
 ## ggplot2 -----------------------
           
+# Choosing a color palette
+colorspace::choose_palette()
 
