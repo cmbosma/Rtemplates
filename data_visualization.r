@@ -5,6 +5,8 @@ browseURL("http://www.statmethods.net/") # Quick-R website - great reference for
 browseURL("http://cran.r-project.org/web/packages/available_packages_by_name.html") # Available CRAN Packages by Name
 browseURL("http://cran.r-project.org/web/views/") # List of packages by category
 browseURL("https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml") # Google's R Style Guide
+browseURL("https://cran.r-project.org/web/packages/jtools/vignettes/interactions.html") # documentation for jtools package
+browseURL("https://gotellilab.github.io/GotelliLabMeetingHacks/NickGotelli/ggplotPatchwork.html") # documentation for patchwork package
 
 ## Load Packages
 ## -----------------------
@@ -13,13 +15,23 @@ if (!require(lattice)) {install.packages("lattice"); require(lattice)} # lattice
 if (!require(ggvis)) {install.packages("ggvis"); require(ggvis)} 
 if (!require(colorspace)) {install.packages("colorspace"); require(colorspace)} # package with GUI to choose palettes
 library(jtools) # for plotting interactions
+library(patchwork) # package for printing multple plots 
 
-## Load Data -----------------------
+## Load Data ----------------------------
+
+## Creating a Custom Palette -------------
+colorspace::choose_palette()
 
 ## Base Graphics -----------------------
 
 ## ggplot2 -----------------------
-          
-# Choosing a color palette
-colorspace::choose_palette()
+
+## Plotting Interactions Using jtools
+
+interaction_plot()
+
+## Multiple Plots
+
+
+
 
