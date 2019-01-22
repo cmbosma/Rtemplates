@@ -34,6 +34,9 @@ interaction_plot()
 
 ## Multiple Plots
 
-
+ggarrange(p1, p2, p3, p4,
+          nrow = 2,
+          ncol = 2,
+          labels = "AUTO")
 
 
