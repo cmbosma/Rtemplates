@@ -16,6 +16,8 @@ if (!require(ggvis)) {install.packages("ggvis"); require(ggvis)}
 if (!require(colorspace)) {install.packages("colorspace"); require(colorspace)} # package with GUI to choose palettes
 library(jtools) # for plotting interactions
 library(patchwork) # package for printing multple plots 
+library(ggpubr) # use if patchwork is not compatible with current version of R
+
 
 ## Load Data ----------------------------
 
