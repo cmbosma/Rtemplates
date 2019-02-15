@@ -23,6 +23,7 @@ data <- read.csv2("datafram.csv", dec = ",") # Includes useful arguement to allo
 
 data <- file.path("[insert directory]")
 data <- read_csv("dataframe.csv")
+data <- read_csv(file.choose()) # Opens finder for you to choose the file
 
 ## Exporting .csv using base
 
