@@ -39,4 +39,9 @@ ggplot(df, mapping = aes()) # basic plotting from ggplot2
 
 ## Cleaning data
 
-names(df)[names(df) == 'old.var.name'] <- 'new.var.name'# renaming vectors
+# renaming elements of vectors
+names(df)[names(df) == 'old.var.name'] <- 'new.var.name'
+
+# Remove a case and assign to new data frame
+newdf <- olddf[!(olddf$var=="case_string"),]
+
