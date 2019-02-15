@@ -37,6 +37,9 @@ data <- read_csv("[data.csv]") # load data using readr package - can use argumen
     str(data) # check to see which variables may need to be converted to a different class
     View(data)
 
+# Opens finder for you to choose the file
+data <- read_csv(file.choose()) 
+
 
 ## SUBSETTING COLUMNS OF INTEREST
 
