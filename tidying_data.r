@@ -6,6 +6,10 @@
 
 library(tidyverse)
 
+## Formatting data frame
+names(data) <- tolower(names(data)) # Change all variable names to lowercase
+names(data) <- gsub("-", "_", names(data))   # replace "." with "_" in variable names (change based on variable names)
+
 ## Explore raw data
 
 class() # class of data object
