@@ -87,6 +87,9 @@ ggplot(data = data, aes(x = xvar_rand_norm)) +
   geom_vline(xintercept = xvar_mean, color = "dark red") +
   annotate("text", label = paste("Mean: ", round(xvar_mean,digits = 2)), x = xvar_mean, y = 30, color = "white", size = 5)
 
+# Boxplots using ggplot 2 
+
+
 
 # Using base graphics
 par()              # view current settings
@@ -124,7 +127,7 @@ scale(df$vec, center = TRUE, scale = TRUE)
 df$vec - mean(df$vec)/sd(df$vec) # manually 
 
 
-# With dplyr
+# List cases based on cutoff value with dplyr
 dplyr::filter(df[c("id", "vec")], vec < x | vec > x) # replace x with cutoff
 
 # Winsorizing
@@ -136,6 +139,23 @@ df <- df %>% mutate(vec = replace(vec, vec/"id" <= x, new value)) # using dplyr
 
 ## DESCRIPTIVE STATISTICS
 ## -----------------------
+
+# Using tidyverse
+
+# By variable 
+df %>% 
+  summarise(mean = mean(vec),
+            sd = sd(vec))
+
+# Grouped by a grouping variable
+df %>%
+  group_by(group_vec),
+  summarise()
+
+# Based on a value
+df %>%
+  filter(vec == x), # can use any boolean operater 
+  summarise()
 
 # Depending on type of data, use lapply(), or vapply() for more control
 
