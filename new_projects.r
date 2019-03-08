@@ -29,10 +29,10 @@ if (!require(robustHD)) {install.packages("robustHD"); require(robustHD)} # Pack
 # use fread() function to import data and easily drop/select variables ex: data <- fread("data.csv", select = c(), drop = c())
 ## -----------------------
 data <- file.path("[insert directory]") # setting file path to import data
-data <- read_csv("[data.csv]") # load data using readr package - can use arguments to convert data types through import
+data <- haven::read_csv("[data.csv]") # load data using haven package - can use arguments to convert data types through import
   names(data) <- tolower(names(data)) ##Change all variable names to lowercase
   names(data) <- gsub("-", "_", names(data))   ## replace "." with "_" in variable names (change based on variable names)
-  names(data) #Checking changes to variable names
+  names(data) # Checking changes to variable names
     head(data, 10); tail(data, 10) # Print fist and last six items of data set
     str(data) # check to see which variables may need to be converted to a different class
     View(data)
@@ -43,7 +43,12 @@ data <- read_csv(file.choose())
 
 ## SUBSETTING COLUMNS OF INTEREST
 
+# base
 df <- data.frame(data[vec1, vec2, vec3,...])
+
+# tidyverse
+df <- df %>%
+  select(vec1, vec2, ...)
 
 ## FORMATTING DATA - Basic (if needed)
 ## -----------------------
