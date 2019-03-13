@@ -137,9 +137,9 @@ dplyr::filter(df[c("id", "vec")], vec < x | vec > x) # replace x with cutoff
 
 # Winsorizing
 
-df[which(df$id == id_number), c("vec")] == new_value
+df[which(df$id == id_number), c("vec")] == new_value # doesn't work
 df[row_number, column_number] = new_value
-df <- df %>% mutate(vec = replace(vec, vec/"id" <= x, new value)) # using dplyr
+df <- df %>% mutate(vec = replace(vec, vec/"id" <= x, new value)) # can put id (e.g., AAE012) instead of vec
 df <- df %>% mutate(vec = replace(vec, vec <= x, new value)) # using dplyr
 
 
