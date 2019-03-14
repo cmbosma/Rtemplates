@@ -62,8 +62,16 @@ read_excel() # imports data.
                      
 data <- read_excel("path/to/file.xlsm")  #  Imports first sheet by default. 
 data <- read_excel("path/to/file.xlsm", sheet = 2) # imports second sheet                 
-data <- read_excel("path/to/file.xlsm", sheet = "name_of_sheet") # imports based on name of sheet                 
+data <- read_excel("path/to/file.xlsm", sheet = "name_of_sheet") # imports based on name of sheet   
 
+# Combine sheets                     
+data <- list(df_1, df_2)
+                     
+# Can read in whole workbook instead of by sheet using lapply                    
+
+my_workbook <- lapply(excel_sheets("data.xlsx"),
+                      read_excel,
+                      path = "data.xlsx")                     
                      
 ## Exporting 
 ## ---------------------------------------------------------------------------------
