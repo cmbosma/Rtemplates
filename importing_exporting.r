@@ -55,7 +55,7 @@ data <- read_sav("filename.sav")
 data <- haven::read_sav("filename.sav")
                      
 ## Importing excel using readxl package
-# Notes: Accepts both .xls and .xlsm files
+# Notes: Accepts both .xls and .xlsx files
                      
 excel_sheets() # lists sheets                     
 read_excel() # imports data. 
