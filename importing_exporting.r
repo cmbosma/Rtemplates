@@ -8,6 +8,7 @@ if (!require(readr)) {install.packages("readr"); require(readr)} # package for i
 if (!require(data.table)) {install.packages("data.table"); require(data.table)} # package for fread() function
 if (!require(haven)) {install.packages("haven"); require(haven)} # package for fread() function
 if (!require(readxl)) {install.packages("readxl"); require(readxl)} # package for importing excel files
+if (!require(XLConnect)) {install.packages("XLConnect"); require(XLConnect)} # package for comprehensive work with Excel files
 
 
 ## Importing 
@@ -60,9 +61,9 @@ data <- haven::read_sav("filename.sav")
 excel_sheets() # lists sheets                     
 read_excel() # imports data. 
                      
-data <- read_excel("path/to/file.xlsm")  #  Imports first sheet by default. 
-data <- read_excel("path/to/file.xlsm", sheet = 2) # imports second sheet                 
-data <- read_excel("path/to/file.xlsm", sheet = "name_of_sheet") # imports based on name of sheet   
+data <- read_excel("path/to/file.xlsx")  #  Imports first sheet by default. 
+data <- read_excel("path/to/file.xlsx", sheet = 2) # imports second sheet                 
+data <- read_excel("path/to/file.xlsx", sheet = "name_of_sheet") # imports based on name of sheet   
 
 # Combine sheets                     
 data <- list(df_1, df_2)
@@ -72,7 +73,11 @@ data <- list(df_1, df_2)
 my_workbook <- lapply(excel_sheets("data.xlsx"),
                       read_excel,
                       path = "data.xlsx")                     
-                     
+
+# Can work with Excel Workbooks using the 'XLConnect' package
+
+book <- loadWorkbook("path/to/file.xlsx")
+
 ## Exporting 
 ## ---------------------------------------------------------------------------------
 ## Exporting .csv using base
