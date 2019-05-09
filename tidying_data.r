@@ -7,11 +7,7 @@
 library(tidyverse)
 library(dplyr) # if needed
 
-## Formatting data frame
-names(data) <- tolower(names(data)) # Change all variable names to lowercase
-names(data) <- gsub("-", "_", names(data))   # replace "." with "_" in variable names (change based on variable names)
-
-## Explore raw data
+## Explore data
 
 class() # class of data object
 
@@ -43,8 +39,19 @@ plot() # view plot of two variables
 
 ggplot(df, mapping = aes()) # basic plotting from ggplot2
 
-## Cleaning data
+## Tidying data
 ## -----------------------------------------------------------------------------
+
+# Tidying variables and observations
+gather(data, key, values, -vars) # change to long format
+spread(data, key, value) # change to wide format 
+separate() # separate values from one column into two
+unite() # join values in two columns into one
+
+# Cleaning format of variable names
+names(data)
+names(data) <- tolower(names(data)) # Change all variable names to lowercase
+names(data) <- gsub("-", "_", names(data))   # replace "." with "_" in variable names (change based on variable names)
 
 # renaming elements of vectors
 names(df)[names(df) == 'old.var.name'] <- 'new.var.name'
