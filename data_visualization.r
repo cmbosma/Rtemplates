@@ -17,6 +17,7 @@ if (!require(colorspace)) {install.packages("colorspace"); require(colorspace)} 
 library(jtools) # for plotting interactions
 library(patchwork) # package for printing multple plots 
 library(ggpubr) # use if patchwork is not compatible with current version of R
+library(gameofthrones) # color palette inspired by GoT
 
 
 ## Load Data ----------------------------
