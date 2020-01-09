@@ -17,23 +17,38 @@ if (!require(colorspace)) {install.packages("colorspace"); require(colorspace)} 
 library(jtools) # for plotting interactions
 library(patchwork) # package for printing multple plots 
 library(ggpubr) # use if patchwork is not compatible with current version of R
+library(esquisse) # Add-in with GUI to create ggplot2 figures (helpful for legends)
+# Palettes
 library(gameofthrones) # color palette inspired by GoT
+library(wesanderson) # color palette inspired by Wes Anderson
 
 
-## Load Data ----------------------------
+## Load Data 
+## -----------------------
 
-## Creating a Custom Palette -------------
+## Creating a Custom Palette 
+## -----------------------
+
 colorspace::choose_palette()
 
-## Base Graphics -----------------------
+## Base Graphics 
+## -----------------------
 
-## ggplot2 -----------------------
+??plot()
 
+## ggplot2 
+## -----------------------
+
+p1 <- data %>%
+  ggplot(mapping = (x, y, color = factorVar) + 
+         
 ## Plotting Interactions Using jtools
+## -----------------------
 
 interaction_plot()
 
 ## Multiple Plots
+## -----------------------
 
 ggarrange(p1, p2, p3, p4,
           nrow = 2,
