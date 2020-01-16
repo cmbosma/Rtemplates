@@ -5,6 +5,8 @@
 
 ## Package Maintence
 
+installed.packages() # check user installed packages
+
 old.packages() # checks which installed packages can be updated
 
 update.packages(ask = FALSE) # updates all packages. Does not ask permission for each with 'ask argument'
