@@ -13,16 +13,36 @@ browseURL("http://style.tidyverse.org") # The tidyverse style guide
 
 ## PACKAGES
 ## -----------------------
-if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
+# if (!require(packagename)) {install.packages("packagename"); require(packagename)} # Template
 if (!require(psych)) {install.packages("psych"); require(psych)} # Basic upgrades to the base R functions tailored to psychology
 if (!require(tidyverse)) {install.packages("tidyverse"); require(tidyverse)} # Packages by Hadley Wickham. Includes dyplr, tidyr, and ggplot2
-if (!require(tidyverse)) {install.packages("haven"); require(haven)} # Package for importing data sets, including excel and SPSS
+if (!require(haven)) {install.packages("haven"); require(haven)} # Package for importing data sets, including excel and SPSS
 if (!require(lintr)) {install.packages("lintr"); require(lintr)} # Package for checking style of code
 if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 if (!require(p.adjust)) {install.packages("p.adjust"); require(p.adjust)} # For correcting for multiple comparisons
 if (!require(robustHD)) {install.packages("robustHD"); require(robustHD)} # Package for winsorizing and critical values
 
+# More efficient way to load packages
 
+# Packages needed
+packages <- c("tidyverse",
+              "readxl",
+              "psych",
+              "haven",
+              "magrittr",
+              "lintr",
+             "outliers",
+             "p.adjust",
+             "robustHD")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load packages into workspace
+invisible(lapply(packages, library, character.only = TRUE))
 
 ## IMPORT DATA (from flat .csv file)
 # Note: use function read.csv2 for european data sets (with commas as decimals). Use read.table() to set parameters to read other flat data formats
