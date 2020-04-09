@@ -6,6 +6,7 @@
 
 # Packages needed
 packages <- c("tidyverse",
+             "ggmap", # allows geo spatial data to be layered onto ggplot
              )
 
 # Install packages not yet installed
@@ -17,3 +18,9 @@ if (any(installed_packages == FALSE)) {
 # Load packages into workspace
 invisible(lapply(packages, library, character.only = TRUE))
 
+## 
+## ---------------------------------------------------------
+
+## ggmap
+# get_map() location can be an object with a longitude and latitude pair
+get_map(location, zoom = , scale = )
