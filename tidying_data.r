@@ -51,13 +51,19 @@ unite() # join values in two columns into one
 # Cleaning format of variable names
 names(data)
 names(data) <- tolower(names(data)) # Change all variable names to lowercase
-names(data) <- gsub("-", "_", names(data))   # replace "." with "_" in variable names (change based on variable names)
+names(data) <- gsub(".", "_", names(data))   # replace "." with "_" in variable names (change based on variable names)
 
 # renaming elements of vectors
 names(df)[names(df) == 'old.var.name'] <- 'new.var.name'
 
 # Remove a case and assign to new data frame
 newdf <- olddf[!(olddf$var=="case_string"),]
+
+# Revalueing/coding variables using 'plyr' package
+df$var <- revalue(df$var, c("Male" = "1", "Female" = "2")
+df$var <- mapvalues(df$var, from = c("M", "F"), to = c("1", "2"))
+# If changing numbers, consider just using arithmetic 
+df[, c("var1","var2)] - 1 # shift numbers down by one
 
 ## Computing Variables
 ## -----------------------------------------------------------------------------
