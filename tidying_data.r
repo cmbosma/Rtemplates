@@ -62,8 +62,15 @@ newdf <- olddf[!(olddf$var=="case_string"),]
 # Revalueing/coding variables using 'plyr' package
 df$var <- revalue(df$var, c("Male" = "1", "Female" = "2")
 df$var <- mapvalues(df$var, from = c("M", "F"), to = c("1", "2"))
+
 # If changing numbers, consider just using arithmetic 
 df[, c("var1","var2)] - 1 # shift numbers down by one
+
+# Reverse coding 
+# Note: subtract columns from highest level + 1 (e.g., likert scale 1-4; subtract from 5)
+# example
+inlabdata[,c("camsr_2", "camsr_6", "camsr_7")] <- 5-inlabdata[,c("camsr_2", "camsr_6", "camsr_7")]
+
 
 ## Computing Variables
 ## -----------------------------------------------------------------------------
