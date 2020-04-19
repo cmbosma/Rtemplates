@@ -26,6 +26,7 @@ if (!require(robustHD)) {install.packages("robustHD"); require(robustHD)} # Pack
 
 # Packages needed
 packages <- c("tidyverse",
+              "here",
               "readxl",
               "psych",
               "haven",
@@ -48,7 +49,8 @@ invisible(lapply(packages, library, character.only = TRUE))
 # Note: use function read.csv2 for european data sets (with commas as decimals). Use read.table() to set parameters to read other flat data formats
 # use fread() function to import data and easily drop/select variables ex: data <- fread("data.csv", select = c(), drop = c())
 ## -----------------------
-data <- file.path("[insert directory]") # setting file path to import data
+here::here() # Set your directory - works best when you are using R projects
+data <- haven::read_csv(here("datafolder", "data.csv"))
 data <- haven::read_csv("[data.csv]") # load data using haven package - can use arguments to convert data types through import
   names(data) <- tolower(names(data)) ##Change all variable names to lowercase
   names(data) <- gsub("-", "_", names(data))   ## replace "." with "_" in variable names (change based on variable names)
