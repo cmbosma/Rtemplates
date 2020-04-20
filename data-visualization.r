@@ -23,8 +23,12 @@ library(gameofthrones) # color palette inspired by GoT
 library(wesanderson) # color palette inspired by Wes Anderson
 
 
-## Load Data 
+## ggplot2 
 ## -----------------------
+
+
+
+
 
 ## Creating a Custom Palette 
 ## -----------------------
