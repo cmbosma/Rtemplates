@@ -47,6 +47,17 @@ gather(data, key, values, -vars) # change to long format
 spread(data, key, value) # change to wide format 
 separate() # separate values from one column into two
 unite() # join values in two columns into one
+# To combine multiple columns with values that do not overlap (e.g., column for each condition, use rowSums() if possible, or pivot_longer() approach
+# rowSums
+df <- rowSums(data[c("var1", "var2", "var3"], na.rm = FALSE)
+
+# Pivot (may need some adjusting)
+df %>%
+  pivot_longer(
+    cols = c(var1_1, var1_2, var1_3),
+    names_to = "columns",
+    values_to = "values") %>%
+  drop_na()
 
 # Cleaning format of variable names
 names(data)
