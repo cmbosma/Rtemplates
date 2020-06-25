@@ -92,3 +92,28 @@ data$bdi_s1 <- rowSums(data[c("bdi_ii_1", "bdi_ii_2", "bdi_ii_3",
 # Row means 
 
 df$vec <- rowMean(df[c("vec1", "vec2")], na.rm = FALSE)
+
+# Row SDs/Variance
+
+
+library(matrixStats)
+
+data <- data %>% 
+  mutate(vas_neg_sd = rowSds(as.matrix(data[, c("VAS_neg_1_t1", "VAS_neg_2_t1", "VAS_neg_1_t2", "VAS_neg_2_t2",
+                                                "VAS_neg_1_t3", "VAS_neg_2_t3", "VAS_neg_1_t4", "VAS_neg_2_t4",
+                                                "VAS_neg_1_t5", "VAS_neg_2_t5", "VAS_neg_1_t6", "VAS_neg_2_t6",
+                                                "VAS_neg_1_t7", "VAS_neg_2_t7", "VAS_neg_1_t8", "VAS_neg_2_t8",
+                                                "VAS_neg_1_t9", "VAS_neg_2_t9", "VAS_neg_1_t10", "VAS_neg_2_t10", 
+                                                "VAS_neg_1_t11", "VAS_neg_2_t11", "VAS_neg_1_t12", "VAS_neg_2_t12",
+                                                "VAS_neg_1_t13", "VAS_neg_2_t13", "VAS_neg_1_t14", "VAS_neg_2_t14",
+                                                "VAS_neg_1_t15", "VAS_neg_2_t15", "VAS_neg_1_t16", "VAS_neg_2_t16",
+                                                "VAS_neg_1_t17", "VAS_neg_2_t17")]), na.rm = TRUE))
+
+# Using Tidyverse (doesn't always work)
+
+sad_vas_sd <- data %>%
+  rowwise() %>%
+  mutate(sad_vas_sd = sd(c(vas_1_1_1, vas_2_1_1, vas_3_1_1)), na.rm = TRUE) %>%
+  select(sad_vas_sd) %>%
+  glimpse()
+
