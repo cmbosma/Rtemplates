@@ -21,6 +21,8 @@ if (!require(lintr)) {install.packages("lintr"); require(lintr)} # Package for c
 if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 if (!require(p.adjust)) {install.packages("p.adjust"); require(p.adjust)} # For correcting for multiple comparisons
 if (!require(robustHD)) {install.packages("robustHD"); require(robustHD)} # Package for winsorizing and critical values
+if (!require(broom)) {install.packages("broom"); require(broom)} # cleans up the output of linear models
+
 
 # More efficient way to load packages
 
@@ -34,7 +36,8 @@ packages <- c("tidyverse",
               "lintr",
              "outliers",
              "p.adjust",
-             "robustHD")
+             "robustHD",
+             "broom")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
