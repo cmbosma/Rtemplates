@@ -21,7 +21,7 @@ if (!require(lintr)) {install.packages("lintr"); require(lintr)} # Package for c
 if (!require(outliers)) {install.packages("outliers"); require(outliers)} # Outlier detection
 if (!require(p.adjust)) {install.packages("p.adjust"); require(p.adjust)} # For correcting for multiple comparisons
 if (!require(robustHD)) {install.packages("robustHD"); require(robustHD)} # Package for winsorizing and critical values
-if (!require(broom)) {install.packages("broom"); require(broom)} # cleans up the output of linear models
+if (!require(broom)) {install.packages("broom"); require(broom)} # cleans up the output of linear models and a tabular output 
 
 
 # More efficient way to load packages
