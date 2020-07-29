@@ -67,3 +67,36 @@ frequency(df)
 # returns the position in the cycle of each observation
 cycle(df)
 
+## Trend Spotting -----------------------------------------------
+
+# sample transformations
+  # Log transformation can linearalize a rapid growth tend
+log()
+  # Diff function can remove linear trends by creating a change series
+diff()
+  # Seasonal difference transformation - can remove periods of trends
+diff(..., s = )
+diff(..., lag = ) # can use lag argument 
+
+## Estimating White Noise ---------------------------------------
+
+# Estimating
+arima(model, order = c(0, 0 ,0))
+# can also estimate mean and variance parameters
+mean(); var()
+
+# Simulating
+arima.sim(model = list(order = c(0, 0, 0)), n = <n-observations>)
+
+## Random Walk modeling -----------------------------------------
+
+# simulating a random walk model
+arima.sim(model = list(order = c (0, 1, 0)), n = 100)
+
+# Generate RW model with drift. Providing a mean value creates the drift
+rw_drift <- arima.sim(model = list(order = c(0, 1, 0)), n = 100, mean = 1)
+
+## Scatter Plots ----------------------------------------
+
+
+
