@@ -120,5 +120,21 @@ predict(vec) # default is 1-step
 # Multiple steps
 predict(vec, n.ahead = 10)
 
+## Simple Moving Average Model ------------------------------------------
+
+# Simulating a moving average model 
+x <- arima.sim(model = list(ma = theta), n = 100)
+# Slope = 0.5
+x <- arima.sim(model = list(ma = 0.5), n = 100)
+
+## Forecasting
+# First-order MA model 
+x <- arima(vec, order = c(0, 0, 1))
+print(x) # get summary
+
+# Forecast 
+predict(x)$pred
+
+
 
 
