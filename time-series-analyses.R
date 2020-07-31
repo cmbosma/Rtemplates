@@ -96,7 +96,29 @@ arima.sim(model = list(order = c (0, 1, 0)), n = 100)
 # Generate RW model with drift. Providing a mean value creates the drift
 rw_drift <- arima.sim(model = list(order = c(0, 1, 0)), n = 100, mean = 1)
 
-## Scatter Plots ----------------------------------------
+## Autocorrelation ----------------------------------------------
+
+# Lag 1 autocorrelation - e.g., one day before
+acf(vec, lag.max = 1, plot = FALSE)
+
+# Can evaluate time lag for more than one
+acf(vec, lag.max = 3, plot = TRUE) # evals lag for 1:3 and plots them
+
+## Autoregressive Modeling --------------------------------------
+
+# Simulate an AR model with 0.5 slope
+x <- arima.sim(model = list(ar = 0.5), n = 100)
+
+## Autoregressive Modeling (AR) Estimation and Forecasting ------
+
+# Fitting and AR model
+x <- arima(vec, order = c(1, 0, 0))
+
+# Make a prediction using a 1-step forecast
+predict(vec) # default is 1-step
+
+# Multiple steps
+predict(vec, n.ahead = 10)
 
 
 
