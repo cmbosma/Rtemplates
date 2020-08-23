@@ -37,7 +37,8 @@ packages <- c("tidyverse",
              "outliers",
              "p.adjust",
              "robustHD",
-             "broom")
+             "broom",
+             "VIM")
 
 # Install packages not yet installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -102,6 +103,7 @@ ls() # Look at what is in your workspace
 summary()
 describe()
 table() # Useful for looking at frequencies of categorical variables (can use sapply(Var, sum) as well)
+aggr() # from the VIM package; investigate instances of NAs
 
 ## PLOTTING DATA AND OUTLIER DETECTION 
 ## ------------------------
