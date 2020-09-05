@@ -49,5 +49,14 @@ summary(im_df)
 # Double-check imputed values
 mi_df$imp$var
 
+# If you want to run regressions using all 5, use the with() function
+  # Note: not compatible with moderndive
+# Try using all 5 data sets
+# Build model
+fit <- with(data = mi_df, exp = lm(dv ~ iv))
+summary(fit)
 
+# Combine results of all 5 sets
+combined <- pool(fit)
+summary(combined)
 
