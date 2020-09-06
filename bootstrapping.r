@@ -18,7 +18,7 @@ browseURL("https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf")
 # To see examples for bootstrapping other stats
 vignette("observed_stat_examples")
 
-# 95% CIs for simple linear regression. 
+# 95% CIs for simple linear regression slope. 
 
 # Generating the null distribution
 boot <- df %>%
