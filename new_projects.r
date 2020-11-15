@@ -57,7 +57,7 @@ here::here() # Set your directory - works best when you are using R projects
 data <- haven::read_csv(here("datafolder", "data.csv"))
 data <- haven::read_csv("[data.csv]") # load data using haven package - can use arguments to convert data types through import
   names(data) <- tolower(names(data)) ##Change all variable names to lowercase
-  names(data) <- gsub("-", "_", names(data))   ## replace "." with "_" in variable names (change based on variable names)
+  names(data) <- gsub("\\.", "_", names(data))   ## replace "." with "_" in variable names (change based on variable names)
   names(data) # Checking changes to variable names
     head(data, 10); tail(data, 10) # Print fist and last six items of data set
     str(data) # check to see which variables may need to be converted to a different class
