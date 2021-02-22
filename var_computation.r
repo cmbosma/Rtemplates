@@ -1,6 +1,11 @@
 ## Code for common variable computation 
 ## Colin Bosma
 
+
+## Summation of variables
+# Note: can handle reverse scoring 
+varScore(Data, Forward, Reverse=NULL, Range = NULL, Prorate = TRUE, MaxMiss = .20)
+
 ## Reverse scoring
 # Note: subtract value one more than absolute value of all levels of variable 
 # For example, if abs value is 4, then subtract by 5
