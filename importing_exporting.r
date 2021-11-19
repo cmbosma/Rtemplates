@@ -9,6 +9,7 @@ if (!require(data.table)) {install.packages("data.table"); require(data.table)} 
 if (!require(haven)) {install.packages("haven"); require(haven)} # package for fread() function
 if (!require(readxl)) {install.packages("readxl"); require(readxl)} # package for importing excel files
 if (!require(XLConnect)) {install.packages("XLConnect"); require(XLConnect)} # package for comprehensive work with Excel files
+library(feather) # For very large data sets - stores as flattened df and uses hard drive instead of RAM 
 
 
 ## Importing 
