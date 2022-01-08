@@ -37,6 +37,8 @@ names(newdf) <- c("var.name")
 
 ## Restructuring data into long format using `reshape2` package -----------------------
 
+# ! Note incorporate pivot_longer() function 
+
 ?reshape2 # Open reshape2 documentation
 data <- melt(dataframe,
              measure.vars = C(""),
@@ -63,7 +65,7 @@ model_ri <- lme(DV~IV, random=~1|SAMPLE, data=YOURDATA, method="ML")
 #NOTES:
 #1. Syntax that needs to be changed in accordance to your data is in caps
 #2. Sample is the variable you use to identify each sample, such as participant IDs. It is the variable where you want your random intercepts to be based on.
-#3. If you happen to have any missing data you are not aware of, use (na.actions=na.exlude)
+#3. If you happen to have any missing data you are not aware of, use (na.actions=na.exlude) or use imputation 
 #4. This is likely the model format you will be using.
 #5. SAMPLE is typically the id, allowing for the random intercept at the individual level 
 
